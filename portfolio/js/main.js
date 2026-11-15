@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-5';
+const assetVersion = '20261115-6';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -15,7 +15,7 @@ const projects = [
     links: [['기사 원문 확인', 'https://drive.google.com/file/d/1M7uF8onod1zyjIoaqKnONt20T8Tgd01l/view?usp=drive_link']],
   },
   {
-    img: 'work13', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
+    img: 'page06', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
     title: '폐광 수직갱도의 미세중력 우주 실험 시설 탈바꿈',
     rows: [
       ['PROJECT', '기획 보도 기사 작성'],
@@ -25,7 +25,7 @@ const projects = [
     links: [['기사 원문 QR 확인', versioned('images/page06.jpg')]],
   },
   {
-    img: 'work14', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
+    img: 'page07', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
     title: 'K-게임의 글로벌 멀티플랫폼 진출',
     rows: [
       ['PROJECT', '기획 기사 작성'],
@@ -117,7 +117,7 @@ const pageNames = ['표지', '목차', '저는 이런 사람입니다!', '이런
 const zoomPageByImage = {
   work01: 5, work02: 6, work03: 7, work04: 8, work05: 11, work06: 12,
   work07: 13, 'work08-full': 14, work09: 15, work10: 16, work11: 17, work12: 18,
-  work13: 6, work14: 7,
+  page06: 6, page07: 7,
 };
 
 // ---------- render ----------
