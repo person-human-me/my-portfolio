@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-3';
+const assetVersion = '20261115-4';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -15,7 +15,7 @@ const projects = [
     links: [['기사 원문 확인', 'https://drive.google.com/file/d/1M7uF8onod1zyjIoaqKnONt20T8Tgd01l/view?usp=drive_link']],
   },
   {
-    img: 'page06', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
+    img: 'work13', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
     title: '폐광 수직갱도의 미세중력 우주 실험 시설 탈바꿈',
     rows: [
       ['PROJECT', '기획 보도 기사 작성'],
@@ -25,7 +25,7 @@ const projects = [
     links: [['기사 원문 QR 확인', versioned('images/page06.jpg')]],
   },
   {
-    img: 'page07', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
+    img: 'work14', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
     title: 'K-게임의 글로벌 멀티플랫폼 진출',
     rows: [
       ['PROJECT', '기획 기사 작성'],
@@ -114,17 +114,12 @@ const pageNames = ['표지', '목차', '저는 이런 사람입니다!', '이런
   '경향게임스 플리더스 기사 분석', '도서 마케팅 기획 보고서',
   '추억을 기념하고 시간을 지키다', '나무의 일기', '비상계단', '과제곡은 힘들어..', '영어 교과서 내지 제작', '마무리', '뒷표지'];
 
-const zoomPageByImage = {
-  work01: 5, work02: 6, work03: 7, work04: 8, work05: 11, work06: 12,
-  work07: 13, 'work08-full': 14, work09: 15, work10: 16, work11: 17, work12: 18, page06: 6, page07: 7,
-};
-
 // ---------- render ----------
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 document.getElementById('projects').innerHTML = projects.map((p, i) => `
   <article class="project reveal" style="--c:${p.color}">
-    <div class="visual"><img src="${p.img.startsWith('page') ? versioned(`images/${p.img}.jpg`) : `images/${p.img}.jpg`}" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="${versioned(`images/page${String(zoomPageByImage[p.img]).padStart(2, '0')}.jpg`)}"></div>
+    <div class="visual"><img src="${versioned(`images/${p.img}.jpg`)}" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="${versioned(`images/${p.img}.jpg`)}"></div>
     <div class="head"><h3>${esc(p.title)}</h3><span>${esc(p.type)}</span></div>
     <dl>${p.rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
     <div class="btns">${p.links.map(([t, u]) => `<a class="btn" href="${u}" target="_blank" rel="noopener">${t}</a>`).join('')}</div>
@@ -189,21 +184,36 @@ const lbImg = lb.querySelector('img');
 const lbCount = lb.querySelector('.count');
 const all = pageNames.map((_, i) => versioned(`images/page${String(i + 1).padStart(2, '0')}.jpg`));
 let cur = 0;
+const lbPrev = lb.querySelector('.prev');
+const lbNext = lb.querySelector('.next');
+let pageMode = true;
 function show(i) {
+  pageMode = true;
+  lbPrev.hidden = false;
+  lbNext.hidden = false;
   cur = (i + all.length) % all.length;
   lbImg.src = all[cur];
   lbImg.alt = pageNames[cur];
   lbCount.textContent = `${cur + 1} / ${all.length}`;
 }
-function open(src) {
-  show(Math.max(0, all.indexOf(src)));
+function open(src, alt = '') {
+  const pageIndex = all.indexOf(src);
+  if (pageIndex >= 0) show(pageIndex);
+  else {
+    pageMode = false;
+    lbImg.src = src;
+    lbImg.alt = alt;
+    lbCount.textContent = '';
+    lbPrev.hidden = true;
+    lbNext.hidden = true;
+  }
   lb.hidden = false;
   document.body.style.overflow = 'hidden';
 }
 function close() { lb.hidden = true; document.body.style.overflow = ''; }
 document.addEventListener('click', e => {
   const z = e.target.closest('[data-zoom]');
-  if (z) return open(z.dataset.zoom);
+  if (z) return open(z.dataset.zoom, z.alt);
   const f = e.target.closest('#pages figure');
   if (f) return open(all[+f.dataset.idx]);
 });
@@ -214,6 +224,6 @@ lb.addEventListener('click', e => { if (e.target === lb) close(); });
 addEventListener('keydown', e => {
   if (lb.hidden) return;
   if (e.key === 'Escape') close();
-  if (e.key === 'ArrowLeft') show(cur - 1);
-  if (e.key === 'ArrowRight') show(cur + 1);
+  if (pageMode && e.key === 'ArrowLeft') show(cur - 1);
+  if (pageMode && e.key === 'ArrowRight') show(cur + 1);
 });
