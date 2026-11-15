@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-12';
+const assetVersion = '20261115-13';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -52,7 +52,7 @@ const projects = [
       ['PROJECT', '잡지 제작 · 팀 프로젝트'],
       ['CONCEPT', '추억을 보존한다'],
       ['ROLE', '개인 주제 여행의 추억 기획 · 총 11페이지 제작'],
-      ['DESCRIPTION', '팀은 ‘추억을 보존한다’는 컨셉으로 잡지를 제작하였습니다. 저는 여행을 주제로 개인적인 추억을 담아 총 11페이지를 제작하였습니다.'],
+      ['DESCRIPTION', '팀은 추억을 보존한다는 컨셉으로 잡지를 제작하였습니다. 저는 여행을 주제로 개인적인 추억을 담아 총 11페이지를 제작하였습니다.'],
     ],
     links: [['작품 확인', 'https://drive.google.com/file/d/1ufv8vFVs2itDQLeNyNc5_f5Mc1IZ0M6B/view?usp=drive_link']],
   },
