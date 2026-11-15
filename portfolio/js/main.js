@@ -1,10 +1,10 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-9';
+const assetVersion = '20261115-10';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
   {
-    img: 'work01', color: '#b23a3a', type: '인터뷰 기사 작성 프로젝트',
+    img: 'work01', preview: 'project-page05-preview', color: '#b23a3a', type: '인터뷰 기사 작성 프로젝트',
     title: '특별사법경찰관이 무슨 일인가요?',
     rows: [
       ['PROJECT', '인터뷰 기사 작성'],
@@ -36,7 +36,7 @@ const projects = [
     links: [['기사 원문 확인', 'https://blog.naver.com/domooa/224474471193']],
   },
   {
-    img: 'work07', color: '#2b4c8c', type: '마케팅 보고서 작성 프로젝트',
+    img: 'work07', preview: 'project-page13-preview', color: '#2b4c8c', type: '마케팅 보고서 작성 프로젝트',
     title: '「지도가 지구를 덮은 날」 도서 마케팅 기획 보고서',
     rows: [
       ['PROJECT', '도서 마케팅 기획 보고서 · 팀 프로젝트'],
@@ -57,7 +57,7 @@ const projects = [
     links: [['작품 확인', 'https://drive.google.com/file/d/1ufv8vFVs2itDQLeNyNc5_f5Mc1IZ0M6B/view?usp=drive_link']],
   },
   {
-    img: 'work09', color: '#4f7a3a', type: '그림책 제작 프로젝트',
+    img: 'work09', preview: 'project-page15-preview', color: '#4f7a3a', type: '그림책 제작 프로젝트',
     title: '나무의 일기',
     rows: [
       ['PROJECT', '그림책 창작'],
@@ -68,7 +68,7 @@ const projects = [
     links: [['작품 확인', 'https://drive.google.com/file/d/1ndvXVcpjXv2jd-hqBvwdRHLeSyzYwZVQ/view?usp=drive_link']],
   },
   {
-    img: 'work10', color: '#3d4a5c', type: '단편 영화 제작 프로젝트',
+    img: 'work10', preview: 'project-page16-preview', color: '#3d4a5c', type: '단편 영화 제작 프로젝트',
     title: '비상계단',
     rows: [
       ['PROJECT', '단편 공포영화'],
@@ -79,7 +79,7 @@ const projects = [
     links: [['영상 감상', 'https://drive.google.com/file/d/1mW5WiLdQttEQ1L9NQgHmapidxf_9o4hJ/view?usp=drive_link']],
   },
   {
-    img: 'work11', color: '#7a5a2f', type: '뮤직비디오 제작 프로젝트',
+    img: 'work11', preview: 'project-page17-preview', color: '#7a5a2f', type: '뮤직비디오 제작 프로젝트',
     title: '과제곡은 힘들어..',
     rows: [
       ['PROJECT', '뮤직비디오 제작'],
@@ -89,7 +89,7 @@ const projects = [
     links: [['영상 감상', 'https://drive.google.com/file/d/14lGKBbBSIVEFMilGc3l_1F6XK7Wp2NdK/view?usp=drive_link']],
   },
   {
-    img: 'work12', color: '#c0613f', type: '영어 교과서 내지 제작 프로젝트',
+    img: 'work12', preview: 'project-page18-preview', color: '#c0613f', type: '영어 교과서 내지 제작 프로젝트',
     title: '영어 교과서 내지 제작',
     rows: [
       ['PROJECT', '교재 내지 디자인'],
