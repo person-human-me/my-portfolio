@@ -77,23 +77,29 @@ const projects = [
 ];
 
 const articles = [
-  { img: 'work02', src: '한겨레', color: '#1f6f5c', title: '출판계 “출판물에 AI 활용 정도 밝히는 ‘표시 제도’ 도입하자”', url: 'https://blog.naver.com/domooa/224426377458' },
-  { img: 'work03', src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] ‘평균 연령 40.1세’ 격투게임 대표팀, 아시안 게임 금메달로 증명한 ‘열정의 힘’', url: 'https://blog.naver.com/domooa/224445641339' },
-  { img: 'work04', src: '경향게임스', color: '#2b4c8c', title: '[지스타 2026] 조영기 게임산업협회장, “외연 확장…차별화로 글로벌 게임쇼 키울 것”', url: 'https://blog.naver.com/domooa/224425281674' },
-  { img: 'work05', src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] LoL 개발진, “올해 모토는 ‘백 투 더 베이직’…포지션 정체성·전략적 창의성에 집중”', url: 'https://blog.naver.com/domooa/224423980551' },
-  { img: 'work06', src: '경향게임스', color: '#2b4c8c', title: '[줌인 인터뷰-플리더스] ‘오픈형’ 테스트 플랫폼, 유저-개발자 ‘함께 완성하는 게임’', url: 'https://blog.naver.com/domooa/224423474796' },
+  { img: 'work02', page: 6, src: '한겨레', color: '#1f6f5c', title: '출판계 “출판물에 AI 활용 정도 밝히는 ‘표시 제도’ 도입하자”', url: 'https://blog.naver.com/domooa/224426377458' },
+  { img: 'work03', page: 7, src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] ‘평균 연령 40.1세’ 격투게임 대표팀, 아시안 게임 금메달로 증명한 ‘열정의 힘’', url: 'https://blog.naver.com/domooa/224445641339' },
+  { img: 'work04', page: 8, src: '경향게임스', color: '#2b4c8c', title: '[지스타 2026] 조영기 게임산업협회장, “외연 확장…차별화로 글로벌 게임쇼 키울 것”', url: 'https://blog.naver.com/domooa/224425281674' },
+  { img: 'work05', page: 11, src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] LoL 개발진, “올해 모토는 ‘백 투 더 베이직’…포지션 정체성·전략적 창의성에 집중”', url: 'https://blog.naver.com/domooa/224423980551' },
+  { img: 'work06', page: 12, src: '경향게임스', color: '#2b4c8c', title: '[줌인 인터뷰-플리더스] ‘오픈형’ 테스트 플랫폼, 유저-개발자 ‘함께 완성하는 게임’', url: 'https://blog.naver.com/domooa/224423474796' },
 ];
 
 const pageNames = ['표지', '목차', '저는 이런 사람입니다!', '이런 사람은 어떠신가요?', '특별사법경찰관이 무슨 일인가요?', '출판 뉴스 기사 분석',
-  '경향게임스 기사 분석 1', '경향게임스 기사 분석 2', '경향게임스 기사 분석 3', '경향게임스 기사 분석 4', '도서 마케팅 기획 보고서',
+  '경향게임스 기사 분석 1', '경향게임스 기사 분석 2', '경향게임스 기사 분석 3', '경향게임스 기사 분석 4',
+  '경향게임스 LoL 개발진 기사 분석', '경향게임스 플리더스 기사 분석', '도서 마케팅 기획 보고서',
   '추억을 기념하고 시간을 지키다', '나무의 일기', '비상계단', '과제곡은 힘들어..', '영어 교과서 내지 제작', '마무리', '뒷표지'];
+
+const zoomPageByImage = {
+  work01: 5, work02: 6, work03: 7, work04: 8, work05: 11, work06: 12,
+  work07: 13, work08: 14, work09: 15, work10: 16, work11: 17, work12: 18,
+};
 
 // ---------- render ----------
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 document.getElementById('projects').innerHTML = projects.map((p, i) => `
   <article class="project reveal" style="--c:${p.color}">
-    <div class="visual"><img src="images/${p.img}.jpg" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="images/page${String(+p.img.slice(4) + 4).padStart(2, '0')}.jpg"></div>
+    <div class="visual"><img src="images/${p.img}.jpg" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="images/page${String(zoomPageByImage[p.img]).padStart(2, '0')}.jpg"></div>
     <div class="head"><h3>${esc(p.title)}</h3><span>${esc(p.type)}</span></div>
     <dl>${p.rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
     <div class="btns">${p.links.map(([t, u]) => `<a class="btn" href="${u}" target="_blank" rel="noopener">${t}</a>`).join('')}</div>
@@ -101,7 +107,7 @@ document.getElementById('projects').innerHTML = projects.map((p, i) => `
 
 document.getElementById('articles').innerHTML = articles.map((a, i) => `
   <div class="acard" style="--c:${a.color}">
-    <div class="thumb"><img src="images/${a.img}.jpg" alt="${esc(a.src)} 기사 분석" loading="lazy" data-zoom="images/page${String(+a.img.slice(4) + 4).padStart(2, '0')}.jpg"></div>
+    <div class="thumb"><img src="images/${a.img}.jpg" alt="${esc(a.src)} 기사 분석" loading="lazy" data-zoom="images/page${String(a.page).padStart(2, '0')}.jpg"></div>
     <div class="body">
       <span class="src">${a.src}</span>
       <h4>${esc(a.title)}</h4>
