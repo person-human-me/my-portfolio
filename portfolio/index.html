@@ -9,9 +9,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/style.css?v=20261115-13">
+  <link rel="stylesheet" href="css/style.css?v=20261115-14">
 </head>
-<body>
+<body class="gate-active">
+  <div class="newspaper-gate" id="newspaper-gate">
+    <article class="newspaper-sheet" id="newspaper-open" role="button" tabindex="0" aria-label="신문을 펼쳐 포트폴리오 보기">
+      <div class="newspaper-masthead">
+        <div class="newspaper-name"><span>김관형</span><small>PORTFOLIO EDITION</small></div>
+        <p>기록하고, 분석하고, 만들어 온 이야기</p>
+      </div>
+      <div class="newspaper-rule"></div>
+      <header class="newspaper-title">
+        <span class="newspaper-kicker">MEDIA · JOURNALISM · PUBLISHING</span>
+        <h1>저의 이야기를 신문처럼 펼쳐 보세요</h1>
+        <p>인터뷰부터 잡지와 영상까지, 제가 만든 작업을 한곳에 담았습니다.</p>
+      </header>
+      <div class="newspaper-stories">
+        <section class="newspaper-story">
+          <div class="newspaper-image"><img src="images/project-page05-preview.jpg?v=20261115-14" alt="소방관 인터뷰 기사 작업 미리보기"></div>
+          <p class="story-category">INTERVIEW · 현장을 기록하다</p>
+          <h2>사람의 목소리에서 시작한 기사</h2>
+          <p class="story-summary">소방관과의 인터뷰를 바탕으로 현장의 이야기를 담았습니다.</p>
+        </section>
+        <section class="newspaper-story">
+          <div class="newspaper-image"><img src="images/article-page07-preview.jpg?v=20261115-14" alt="K-게임 기획 기사 작업 미리보기"></div>
+          <p class="story-category">ARTICLE · 흐름을 읽다</p>
+          <h2>변화하는 산업을 취재하고 분석하다</h2>
+          <p class="story-summary">기사 작성과 분석을 통해 주제를 깊이 들여다봤습니다.</p>
+        </section>
+        <section class="newspaper-story">
+          <div class="newspaper-image"><img src="images/work08-full.jpg?v=20261115-14" alt="여행의 추억을 담은 잡지 작업 미리보기"></div>
+          <p class="story-category">PUBLISHING · 이야기를 만들다</p>
+          <h2>추억을 페이지에 담은 잡지</h2>
+          <p class="story-summary">기획부터 편집까지, 여행의 기억을 잡지로 구성했습니다.</p>
+        </section>
+      </div>
+      <div class="newspaper-bottom"><span>김관형의 포트폴리오</span><span class="newspaper-cta">신문을 눌러 펼쳐 보세요 <b aria-hidden="true">↗</b></span></div>
+    </article>
+    <p class="newspaper-hint">CLICK THE NEWSPAPER TO OPEN</p>
+  </div>
+
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="gnb">
@@ -191,6 +228,6 @@
     <span class="count"></span>
   </div>
 
-  <script src="js/main.js?v=20261115-13"></script>
+  <script src="js/main.js?v=20261115-14"></script>
 </body>
 </html>

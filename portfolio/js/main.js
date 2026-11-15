@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-13';
+const assetVersion = '20261115-14';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -221,5 +221,19 @@ addEventListener('keydown', e => {
   if (e.key === 'Escape') close();
   if (e.key === 'ArrowLeft') show(cur - 1);
   if (e.key === 'ArrowRight') show(cur + 1);
+});
+
+// ---------- newspaper entry ----------
+const newspaperGate = document.getElementById('newspaper-gate');
+const newspaperOpen = document.getElementById('newspaper-open');
+function openPortfolio() {
+  if (newspaperGate.classList.contains('is-opening')) return;
+  newspaperGate.classList.add('is-opening');
+  document.body.classList.remove('gate-active');
+  setTimeout(() => { newspaperGate.hidden = true; }, 850);
+}
+newspaperOpen.addEventListener('click', openPortfolio);
+newspaperOpen.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPortfolio(); }
 });
 
