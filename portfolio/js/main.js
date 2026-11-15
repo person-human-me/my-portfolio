@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-14';
+const assetVersion = '20261115-15';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -228,6 +228,7 @@ const newspaperGate = document.getElementById('newspaper-gate');
 const newspaperOpen = document.getElementById('newspaper-open');
 function openPortfolio() {
   if (newspaperGate.classList.contains('is-opening')) return;
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   newspaperGate.classList.add('is-opening');
   document.body.classList.remove('gate-active');
   setTimeout(() => { newspaperGate.hidden = true; }, 850);
