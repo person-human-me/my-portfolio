@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-6';
+const assetVersion = '20261115-8';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -15,7 +15,7 @@ const projects = [
     links: [['기사 원문 확인', 'https://drive.google.com/file/d/1M7uF8onod1zyjIoaqKnONt20T8Tgd01l/view?usp=drive_link']],
   },
   {
-    img: 'page06', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
+    img: 'page06', preview: 'article-page06-preview', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
     title: '폐광 수직갱도의 미세중력 우주 실험 시설 탈바꿈',
     rows: [
       ['PROJECT', '기획 보도 기사 작성'],
@@ -25,7 +25,7 @@ const projects = [
     links: [['기사 원문 QR 확인', versioned('images/page06.jpg')]],
   },
   {
-    img: 'page07', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
+    img: 'page07', preview: 'article-page07-preview', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
     title: 'K-게임의 글로벌 멀티플랫폼 진출',
     rows: [
       ['PROJECT', '기획 기사 작성'],
@@ -123,13 +123,17 @@ const zoomPageByImage = {
 // ---------- render ----------
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-document.getElementById('projects').innerHTML = projects.map((p, i) => `
+document.getElementById('projects').innerHTML = projects.map((p, i) => {
+  const page = versioned(`images/page${String(zoomPageByImage[p.img]).padStart(2, '0')}.jpg`);
+  const thumbnail = p.preview || p.img;
+  return `
   <article class="project reveal" style="--c:${p.color}">
-    <div class="visual"><img src="${versioned(`images/${p.img}.jpg`)}" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="${versioned(`images/page${String(zoomPageByImage[p.img]).padStart(2, '0')}.jpg`)}"></div>
+    <div class="visual"><img src="${versioned(`images/${thumbnail}.jpg`)}" alt="${esc(p.title)} 미리보기" loading="lazy" data-zoom="${page}"></div>
     <div class="head"><h3>${esc(p.title)}</h3><span>${esc(p.type)}</span></div>
     <dl>${p.rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
     <div class="btns">${p.links.map(([t, u]) => `<a class="btn" href="${u}" target="_blank" rel="noopener">${t}</a>`).join('')}</div>
-  </article>`).join('');
+  </article>`;
+}).join('');
 
 document.getElementById('articles').innerHTML = articles.map((a, i) => `
   <div class="acard" style="--c:${a.color}">
