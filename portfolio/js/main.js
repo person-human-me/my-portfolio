@@ -1,4 +1,7 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
+const assetVersion = '20261115-3';
+const versioned = path => `${path}?v=${assetVersion}`;
+
 const projects = [
   {
     img: 'work01', color: '#b23a3a', type: '인터뷰 기사 작성 프로젝트',
@@ -12,6 +15,27 @@ const projects = [
     links: [['기사 원문 확인', 'https://drive.google.com/file/d/1M7uF8onod1zyjIoaqKnONt20T8Tgd01l/view?usp=drive_link']],
   },
   {
+    img: 'page06', color: '#3d596e', type: '기획 보도 기사 작성 프로젝트',
+    title: '폐광 수직갱도의 미세중력 우주 실험 시설 탈바꿈',
+    rows: [
+      ['PROJECT', '기획 보도 기사 작성'],
+      ['TOPIC', '폐광 수직갱도를 미세중력 우주 실험 시설로 전환하는 계획'],
+      ['DESCRIPTION', '폐광 수직갱도가 미세중력 우주 실험 시설로 탈바꿈하는 내용을 취재해 기사를 작성하였습니다.'],
+    ],
+    links: [['기사 원문 QR 확인', versioned('images/page06.jpg')]],
+  },
+  {
+    img: 'page07', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
+    title: 'K-게임의 글로벌 멀티플랫폼 진출',
+    rows: [
+      ['PROJECT', '기획 기사 작성'],
+      ['ARTICLE', '모바일 우물 벗어난 K-게임, 스팀·콘솔로 글로벌 영토 확장'],
+      ['TOPIC', 'K-게임의 스팀 · 플레이스테이션 · 엑스박스 진출'],
+      ['DESCRIPTION', 'K-게임이 스팀, 플레이스테이션, 엑스박스를 주무대로 삼아 글로벌 시장에 진출하는 흐름을 다룬 기획 기사를 작성하였습니다.'],
+    ],
+    links: [['기사 원문 QR 확인', versioned('images/page07.jpg')]],
+  },
+  {
     img: 'work07', color: '#2b4c8c', type: '마케팅 보고서 작성 프로젝트',
     title: '「지도가 지구를 덮은 날」 도서 마케팅 기획 보고서',
     rows: [
@@ -22,7 +46,7 @@ const projects = [
     links: [['보고서 확인', 'https://drive.google.com/file/d/1x0ff32U6h3_ZM-SbGYD7YRTf9yo7YamR/view?usp=drive_link']],
   },
   {
-    img: 'work08', color: '#a8452c', type: '잡지 제작 프로젝트',
+    img: 'work08-full', color: '#a8452c', type: '잡지 제작 프로젝트',
     title: '추억을 기념하고 시간을 지키다',
     rows: [
       ['PROJECT', '잡지 제작 · 팀 프로젝트'],
@@ -77,21 +101,22 @@ const projects = [
 ];
 
 const articles = [
-  { img: 'work02', page: 6, src: '한겨레', color: '#1f6f5c', title: '출판계 “출판물에 AI 활용 정도 밝히는 ‘표시 제도’ 도입하자”', url: 'https://blog.naver.com/domooa/224426377458' },
-  { img: 'work03', page: 7, src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] ‘평균 연령 40.1세’ 격투게임 대표팀, 아시안 게임 금메달로 증명한 ‘열정의 힘’', url: 'https://blog.naver.com/domooa/224445641339' },
-  { img: 'work04', page: 8, src: '경향게임스', color: '#2b4c8c', title: '[지스타 2026] 조영기 게임산업협회장, “외연 확장…차별화로 글로벌 게임쇼 키울 것”', url: 'https://blog.naver.com/domooa/224425281674' },
+  { img: 'work02', page: 8, src: '한겨레', color: '#1f6f5c', title: '출판계 “출판물에 AI 활용 정도 밝히는 ‘표시 제도’ 도입하자”', url: 'https://blog.naver.com/domooa/224426377458' },
+  { img: 'work03', page: 9, src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] ‘평균 연령 40.1세’ 격투게임 대표팀, 아시안 게임 금메달로 증명한 ‘열정의 힘’', url: 'https://blog.naver.com/domooa/224445641339' },
+  { img: 'work04', page: 10, src: '경향게임스', color: '#2b4c8c', title: '[지스타 2026] 조영기 게임산업협회장, “외연 확장…차별화로 글로벌 게임쇼 키울 것”', url: 'https://blog.naver.com/domooa/224425281674' },
   { img: 'work05', page: 11, src: '경향게임스', color: '#2b4c8c', title: '[인터뷰] LoL 개발진, “올해 모토는 ‘백 투 더 베이직’…포지션 정체성·전략적 창의성에 집중”', url: 'https://blog.naver.com/domooa/224423980551' },
   { img: 'work06', page: 12, src: '경향게임스', color: '#2b4c8c', title: '[줌인 인터뷰-플리더스] ‘오픈형’ 테스트 플랫폼, 유저-개발자 ‘함께 완성하는 게임’', url: 'https://blog.naver.com/domooa/224423474796' },
 ];
 
-const pageNames = ['표지', '목차', '저는 이런 사람입니다!', '이런 사람은 어떠신가요?', '특별사법경찰관이 무슨 일인가요?', '출판 뉴스 기사 분석',
-  '경향게임스 기사 분석 1', '경향게임스 기사 분석 2', '경향게임스 기사 분석 3', '경향게임스 기사 분석 4',
-  '경향게임스 LoL 개발진 기사 분석', '경향게임스 플리더스 기사 분석', '도서 마케팅 기획 보고서',
+const pageNames = ['표지', '목차', '저는 이런 사람입니다!', '이런 사람은 어떠신가요?', '특별사법경찰관이 무슨 일인가요?',
+  '폐광 수직갱도 우주 실험 시설 기획 보도', 'K-게임 글로벌 멀티플랫폼 진출 기획 기사', '출판 뉴스 기사 분석',
+  '경향게임스 기사 분석 1', '경향게임스 기사 분석 2', '경향게임스 LoL 개발진 기사 분석',
+  '경향게임스 플리더스 기사 분석', '도서 마케팅 기획 보고서',
   '추억을 기념하고 시간을 지키다', '나무의 일기', '비상계단', '과제곡은 힘들어..', '영어 교과서 내지 제작', '마무리', '뒷표지'];
 
 const zoomPageByImage = {
   work01: 5, work02: 6, work03: 7, work04: 8, work05: 11, work06: 12,
-  work07: 13, work08: 14, work09: 15, work10: 16, work11: 17, work12: 18,
+  work07: 13, 'work08-full': 14, work09: 15, work10: 16, work11: 17, work12: 18, page06: 6, page07: 7,
 };
 
 // ---------- render ----------
@@ -99,7 +124,7 @@ const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&
 
 document.getElementById('projects').innerHTML = projects.map((p, i) => `
   <article class="project reveal" style="--c:${p.color}">
-    <div class="visual"><img src="images/${p.img}.jpg" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="images/page${String(zoomPageByImage[p.img]).padStart(2, '0')}.jpg"></div>
+    <div class="visual"><img src="${p.img.startsWith('page') ? versioned(`images/${p.img}.jpg`) : `images/${p.img}.jpg`}" alt="${esc(p.title)} 작업물" loading="lazy" data-zoom="${versioned(`images/page${String(zoomPageByImage[p.img]).padStart(2, '0')}.jpg`)}"></div>
     <div class="head"><h3>${esc(p.title)}</h3><span>${esc(p.type)}</span></div>
     <dl>${p.rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
     <div class="btns">${p.links.map(([t, u]) => `<a class="btn" href="${u}" target="_blank" rel="noopener">${t}</a>`).join('')}</div>
@@ -107,7 +132,7 @@ document.getElementById('projects').innerHTML = projects.map((p, i) => `
 
 document.getElementById('articles').innerHTML = articles.map((a, i) => `
   <div class="acard" style="--c:${a.color}">
-    <div class="thumb"><img src="images/${a.img}.jpg" alt="${esc(a.src)} 기사 분석" loading="lazy" data-zoom="images/page${String(a.page).padStart(2, '0')}.jpg"></div>
+    <div class="thumb"><img src="images/${a.img}.jpg" alt="${esc(a.src)} 기사 분석" loading="lazy" data-zoom="${versioned(`images/page${String(a.page).padStart(2, '0')}.jpg`)}"></div>
     <div class="body">
       <span class="src">${a.src}</span>
       <h4>${esc(a.title)}</h4>
@@ -118,7 +143,7 @@ document.getElementById('articles').innerHTML = articles.map((a, i) => `
 const pagesEl = document.getElementById('pages');
 pagesEl.innerHTML = pageNames.map((n, i) => {
   const f = `images/page${String(i + 1).padStart(2, '0')}.jpg`;
-  return `<figure data-idx="${i}"><img src="${f}" alt="${esc(n)}" loading="lazy"><figcaption>${String(i + 1).padStart(2, '0')}. ${esc(n)}</figcaption></figure>`;
+  return `<figure data-idx="${i}"><img src="${versioned(f)}" alt="${esc(n)}" loading="lazy"><figcaption>${String(i + 1).padStart(2, '0')}. ${esc(n)}</figcaption></figure>`;
 }).join('');
 
 // ---------- typing ----------
@@ -162,7 +187,7 @@ document.querySelectorAll('.slider .arrow').forEach(b => b.addEventListener('cli
 const lb = document.getElementById('lightbox');
 const lbImg = lb.querySelector('img');
 const lbCount = lb.querySelector('.count');
-const all = pageNames.map((_, i) => `images/page${String(i + 1).padStart(2, '0')}.jpg`);
+const all = pageNames.map((_, i) => versioned(`images/page${String(i + 1).padStart(2, '0')}.jpg`));
 let cur = 0;
 function show(i) {
   cur = (i + all.length) % all.length;
