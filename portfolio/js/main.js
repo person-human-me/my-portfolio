@@ -1,5 +1,5 @@
 // ---------- data (PDF 내용 + QR 링크) ----------
-const assetVersion = '20261115-8';
+const assetVersion = '20261115-9';
 const versioned = path => `${path}?v=${assetVersion}`;
 
 const projects = [
@@ -22,7 +22,7 @@ const projects = [
       ['TOPIC', '폐광 수직갱도를 미세중력 우주 실험 시설로 전환하는 계획'],
       ['DESCRIPTION', '폐광 수직갱도가 미세중력 우주 실험 시설로 탈바꿈하는 내용을 취재해 기사를 작성하였습니다.'],
     ],
-    links: [['기사 원문 QR 확인', versioned('images/page06.jpg')]],
+    links: [['기사 원문 확인', 'https://blog.naver.com/domooa/224474470928']],
   },
   {
     img: 'page07', preview: 'article-page07-preview', color: '#2b4c8c', type: '기획 기사 작성 프로젝트',
@@ -33,7 +33,7 @@ const projects = [
       ['TOPIC', 'K-게임의 스팀 · 플레이스테이션 · 엑스박스 진출'],
       ['DESCRIPTION', 'K-게임이 스팀, 플레이스테이션, 엑스박스를 주무대로 삼아 글로벌 시장에 진출하는 흐름을 다룬 기획 기사를 작성하였습니다.'],
     ],
-    links: [['기사 원문 QR 확인', versioned('images/page07.jpg')]],
+    links: [['기사 원문 확인', 'https://blog.naver.com/domooa/224474471193']],
   },
   {
     img: 'work07', color: '#2b4c8c', type: '마케팅 보고서 작성 프로젝트',
